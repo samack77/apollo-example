@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListPokemonContainerComponent } from './container/list-pokemon-container/list-pokemon-container.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./@pages/pokemon/pokemon.module').then(
-        (m) => m.PokemonModule
-      ),
+    component: ListPokemonContainerComponent
   },
   {
     path: '**',
@@ -17,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class PokemonRoutingModule { }
